@@ -3,6 +3,7 @@ name: drug-market
 slug: drug-market
 displayName: 药品市场分析
 version: 1.0.0
+author: zhouwei <WeChat: Shanyue0920>
 summary: 药品市场(Marketing)结构化分析。8活动簇覆盖市场洞察与情报/品牌战略与定位/证据驱动市场细分(STP)/推广策略与执行/市场计划与预算/销售协同与赋能/市场监测与评估/上市前市场与上市准备。核心创新：证据驱动细分——循证证据强度分布图(适应症×亚组×终点×证据等级×样本量×指南推荐×专家共识)定位锚点人群，驱动细分优先级与推广资源倾斜。引用 drug-base 底座(临床档案+校准规则+循证三件套)，强制数据校准(🔍/💭)与市场信息框定，划清市场独占/协同接口/非市场边界。
 license: MIT
 description: >
