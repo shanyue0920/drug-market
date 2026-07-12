@@ -2,7 +2,7 @@
 name: drug-market
 slug: drug-market
 displayName: 药品市场分析
-version: 2.0.0
+version: 2.0.1
 author: zhouwei <WeChat: Shanyue0920>
 summary: 药品市场(Marketing)结构化分析。8活动簇覆盖市场洞察与情报/品牌战略与定位/证据驱动市场细分(STP)/推广策略与执行/市场计划与预算/销售协同与赋能/市场监测与评估/上市前市场与上市准备。核心创新：证据驱动细分——循证证据强度分布图(适应症×亚组×终点×证据等级×样本量×指南推荐×专家共识)定位锚点人群，驱动细分优先级与推广资源倾斜。本 skill 内置知识库(临床档案+校准规则+循证三件套)，强制数据校准(🔍/💭)与市场信息框定，划清市场独占/协同接口/非市场边界。
 license: MIT
@@ -16,7 +16,7 @@ description: >
   销售协同与赋能(销售工具包/培训/目标客户/POA输入)、
   市场监测与评估(KPI/推广效果/份额/竞品追踪)、
   上市前市场与上市准备(上市前调研/定位预研/KOL画像与观念培育/上市策略/市场预估/launch readiness/定价输入)。
-  本 skill 内置共享底座，不重复临床基础与校准规则。
+  本 skill 内置基础模块（foundation.md），不重复临床基础与校准规则。
   按使用者水平切换新人(详细+输入清单)或资深(精简+直给初稿)深度档位。
   严格区分市场独占职能(深做)、协同接口(准入/销售/医学/注册/合规,只给接口清单)、
   非市场边界(纯医学证据生成/纯销售执行/纯准入谈判,外置)。
@@ -29,8 +29,8 @@ allowed-tools: WebSearch, WebFetch, Read, Write
 ---
 
 
-> **🔧 自包含声明**：本 skill 已**完全自包含**，可独立运行，无需安装任何其他 skill 或外部共享底座。
-> 内置共享知识存于本 skill 的 `references/`：临床档案框架与校准规则见 `references/foundation.md`；循证三件套见 `references/evidence-levels.md`、`references/drug-classes.md`、`references/market-methodology.md`；专利FTO框架见 `references/foundation.md` §三。
+> **🔧 自包含声明**：本 skill 已**完全自包含**，可独立运行，无需安装任何其他 skill 或外部依赖。
+> 内置共享知识存于本 skill 的 `references/`：临床档案框架与校准规则见 `references/foundation.md`；循证三件套见 `references/evidence-levels.md`、`references/drug-classes.md`、`references/market-methodology.md`；专利FTO框架见 `references/foundation.md` §3。
 
 # 药品市场分析 Skill
 从市场(Marketing)视角，对药品/治疗领域做结构化分析，把临床价值转化为市场价值与可执行的推广策略。本 skill 内置知识库，强制数据校准与信息框定。
@@ -42,7 +42,7 @@ allowed-tools: WebSearch, WebFetch, Read, Write
 
 **核心创新——证据驱动细分**：传统细分靠人口学/行为拍脑袋，本 Skill 从循证证据强度分布出发，找出证据最强的"锚点人群"，以此驱动细分优先级、核心信息矩阵、推广资源倾斜。证据从哪来？调用 本 skill 自带循证三件套（研究数据/指南推荐/专家共识），按"适应症×亚组×关键终点"三维交叉，每格标注证据等级+样本量+指南推荐级别+专家共识地位，哪个格子证据最满，哪个就是锚点人群。
 
-**内置共享知识**：本 Skill 内置共享底座（临床档案/校准规则/循证三件套/专利FTO）——临床档案(机制/靶点/PK/安全性/循证三件套)、数据校准规则(🔍/💭)、references 知识库(evidence-levels.md / drug-classes.md / market-methodology.md)。不重复这些基础内容，需要时直接 Read 调用。
+**内置共享知识**：本 Skill 内置基础模块（foundation.md）（临床档案/校准规则/循证三件套/专利FTO）——临床档案(机制/靶点/PK/安全性/循证三件套)、数据校准规则(🔍/💭)、references 知识库(evidence-levels.md / drug-classes.md / market-methodology.md)。不重复这些基础内容，需要时直接 Read 调用。
 
 ## 2. 两轮工作机制（防遗漏·防编造）
 
@@ -95,7 +95,7 @@ allowed-tools: WebSearch, WebFetch, Read, Write
 |---|---|---|---|
 | A1 | 通用名/英文名 | NMPA批件/说明书 | 须与说明书一致 |
 | A2 | 药品类别 | NMPA注册信息 | 化药/生物制品/中成药 |
-| A3 | 药理分类与机制 | 说明书+底座 `drug-classes.md` | 机制描述须可溯源至说明书 |
+| A3 | 药理分类与机制 | 说明书+references/drug-classes.md | 机制描述须可溯源至说明书 |
 | A4 | 剂型与给药途径 | 说明书 | 须与说明书一致 |
 | A5 | 规格（所有在售规格） | 说明书/NMPA | 全部罗列 |
 | A6 | 注册分类 | 药智数据(db.yaozh.com) / NMPA批件 | 化药1-5类/生物制品1-15类/中药1-5类 |
@@ -465,7 +465,7 @@ allowed-tools: WebSearch, WebFetch, Read, Write
 
 ## 6. 数据校准规则（强制）
 
-本 Skill 输出的每条关键数据都必须可溯源、可校验。严格执行以下 5 条（与 本 skill references/foundation.md §3 对齐）：
+本 Skill 输出的每条关键数据都必须可溯源、可校验。严格执行以下 5 条（与 本 skill references/foundation.md §2 对齐）：
 
 - **来源分级标注**：每条关键数据标可信度——🔍 已查证（官方说明书/NMPA·FDA/权威指南/核心文献/权威市场数据如IQVIA·米内）、💭 推测或不确定（模型推断或单一非权威来源）。禁止把 💭 当 🔍 呈现。
 - **关键事实交叉校验**：市场规模/竞品份额/医保状态/集采状态/指南推荐等，须至少 2 个独立来源一致方可写为确定；不一致或仅单源时标「待核实」。

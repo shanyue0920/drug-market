@@ -7,7 +7,7 @@
 ## 1. 治疗领域分析框架
 
 ### 1.1 市场规模测算
-调用 `drug-base/references/market-methodology.md` §2，强制标注口径：
+调用 `references/market-methodology.md` §2，强制标注口径：
 - 价格口径：终端价（医院/零售）/ 出厂价 / 医保支付价。
 - 地域口径：中国 / 全球 / 特定区域。
 - 人群口径：确诊患者 / 估测总患病人群。
@@ -19,7 +19,7 @@
 - 阻碍因素：集采降价 / 仿制冲击 / 指南降级 / 安全性事件。
 
 ### 1.3 患者流漏斗
-调用 `drug-base/references/market-methodology.md` §1，各环节标比例与来源，定位最关键瓶颈环节。
+调用 `references/market-methodology.md` §1，各环节标比例与来源，定位最关键瓶颈环节。
 
 ### 1.4 未满足需求（UNMET NEED）四维评估
 | 维度 | 评估问题 | 信号 |

@@ -7,7 +7,7 @@
 ## 1. 上市前市场调研（H1）
 
 ### 1.1 疾病 Landscape
-- 患病率/发病率/诊疗路径/未满足需求（调用 `drug-base/references/market-methodology.md` §1 患者流）。
+- 患病率/发病率/诊疗路径/未满足需求（调用 `references/market-methodology.md` §1 患者流）。
 - 数据源：流行病学文献/指南/登记数据/专家访谈。
 - 产出：疾病全景图 + 患者流漏斗 + 未满足需求清单。
 
@@ -82,7 +82,7 @@
 ## 5. 上市前市场预估（H5）
 
 ### 5.1 Peak Forecast（峰值预测）
-调用 `drug-base/references/market-methodology.md` §2 自下而上：
+调用 `references/market-methodology.md` §2 自下而上：
 ```
 峰值市场规模 = 锚点人群患者数 × 渗透率峰值 × 年治疗费用
 ```
